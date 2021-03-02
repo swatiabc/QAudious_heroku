@@ -417,6 +417,30 @@
 		left: 196px;
 		top: 825px;
 	}
+
+	.file_upload {
+		opacity: 0.0;
+
+		/* IE 8 */
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+
+		/* IE 5-7 */
+		filter: alpha(opacity=0);
+		
+		/* Netscape or and older firefox browsers */
+		-moz-opacity: 0.0;
+
+		/* older Safari browsers */
+		-khtml-opacity: 0.0;
+
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		width: 100%;
+		height:100%;
+	}
 </style>
 <script id="applicationScript">
 ///////////////////////////////////////
@@ -3259,6 +3283,8 @@ window.application = new Application();
 </head>
 <body>
 <div id="signin_form">
+	<form method="post" enctype="multipart/form-data" >
+		{% csrf_token %}
 	<svg class="Rectangle_6">
 		<rect id="Rectangle_6" rx="0" ry="0" x="0" y="0" width="830" height="1080">
 		</rect>
@@ -3278,15 +3304,22 @@ window.application = new Application();
 		
 	<img id="ql_br" src="{% static 'ql_br.png' %}" >
 		
-	<div id="Email_">
+	<!-- <div id="Email_">
 		<span>Email:</span><br>
-	</div>
-	<div id="Password_">
+	</div> -->
+
+	<input name="email_lg" type="text" id="Email_" placeholder="Email"><br>
+
+	<!-- <div id="Password_">
 		<span>Password:</span><br>
-	</div>
-	<div onclick="application.goToTargetView(event)" id="Group_36">
+	</div> -->
+	<input name="password" type="password" id="Password__cq" placeholder="Pasword"><br>
+
+	<!-- <div onclick="application.goToTargetView(event)" id="Group_36"> -->
+	<div id="Group_36">
 		<div id="Login_bv">
 			<span>Login</span>
+			<input type="submit" class="file_upload" >
 		</div>
 		<svg class="Rectangle_29">
 			<rect id="Rectangle_29" rx="15" ry="15" x="0" y="0" width="94" height="38">
@@ -3336,6 +3369,7 @@ window.application = new Application();
 		<ellipse onclick="application.goToTargetView(event)" id="Ellipse_6_ca" rx="21.5" ry="22" cx="21.5" cy="22">
 		</ellipse>
 	</svg>
+	</form>
 </div>
 </body>
 </html>

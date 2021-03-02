@@ -449,6 +449,30 @@
 		left: 196px;
 		top: 825px;
 	}
+
+	.file_upload {
+		opacity: 0.0;
+
+		/* IE 8 */
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+
+		/* IE 5-7 */
+		filter: alpha(opacity=0);
+		
+		/* Netscape or and older firefox browsers */
+		-moz-opacity: 0.0;
+
+		/* older Safari browsers */
+		-khtml-opacity: 0.0;
+
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		width: 100%;
+		height:100%;
+	}
 </style>
 <script id="applicationScript">
 ///////////////////////////////////////
@@ -3291,6 +3315,8 @@ window.application = new Application();
 </head>
 <body>
 <div id="register_form">
+	<form method="post" enctype="multipart/form-data" >
+		{% csrf_token %}
 	<svg class="Rectangle_6_cd">
 		<rect id="Rectangle_6_cd" rx="0" ry="0" x="0" y="0" width="830" height="1080">
 		</rect>
@@ -3312,43 +3338,50 @@ window.application = new Application();
 		
 	<img id="ql_cj" src="{% static 'ql_cj.png' %}" >
 		
-	<div id="Last_Name_">
+	<!-- <div id="Last_Name_">
 		<span>Last Name:</span><br>
-	</div>
+	</div> -->
+	<input name="l_name" type="text" id="Last_Name_" placeholder="Last Name"><br>
 	<svg class="Line_29_cl" viewBox="0 0 674.619 1">
 		<path id="Line_29_cl" d="M 0 0 L 674.618896484375 0">
 		</path>
 	</svg>
-	<div id="Username_">
+	<!-- <div id="Username_">
 		<span>Username:</span><br>
-	</div>
+	</div> -->
+	<input name="username" type="text" id="Username_" placeholder="Username"><br>
 	<svg class="Line_31" viewBox="0 0 674.619 1">
 		<path id="Line_31" d="M 0 0 L 674.618896484375 0">
 		</path>
 	</svg>
-	<div id="Email__co">
+	<!-- <div id="Email__co">
 		<span>Email:</span><br>
-	</div>
+	</div> -->
+	<input name="email" type="text" id="Email__co" placeholder="Email"><br>
 	<svg class="Line_32" viewBox="0 0 674.619 1">
 		<path id="Line_32" d="M 0 0 L 674.618896484375 0">
 		</path>
 	</svg>
-	<div id="Password__cq">
+	<!-- <div id="Password__cq">
 		<span>Password:</span><br>
-	</div>
+	</div> -->
+	<input name="password1" type="password" id="Password__cq" placeholder="Pasword"><br>
 	<svg class="Line_33" viewBox="0 0 674.619 1">
 		<path id="Line_33" d="M 0 0 L 674.618896484375 0">
 		</path>
 	</svg>
-	<div id="Confirm_Password_">
+	<!-- <div id="Confirm_Password_">
 		<span>Confirm Password:</span><br>
-	</div>
+	</div> -->
+
+	<input name="password2" type="password" id="Confirm_Password_" placeholder="Confirm Pasword"><br>
 	<svg class="Line_34" viewBox="0 0 674.619 1">
 		<path id="Line_34" d="M 0 0 L 674.618896484375 0">
 		</path>
 	</svg>
 	<div id="Create">
 		<span>Create</span>
+		<input type="submit" class="file_upload" >
 	</div>
 	<div onclick="application.goToTargetView(event)" id="Group_37">
 		<svg class="Rectangle_30">
@@ -3356,9 +3389,10 @@ window.application = new Application();
 			</rect>
 		</svg>
 	</div>
-	<div id="First_Name_">
+	<!-- <div id="First_Name_">
 		<span>First Name:</span><br>
-	</div>
+	</div> -->
+	<input name="f_name" type="text" id="First_Name_" placeholder="First Name"><br>
 	<svg class="Line_35" viewBox="0 0 674.619 1">
 		<path id="Line_35" d="M 0 0 L 674.618896484375 0">
 		</path>
@@ -3375,6 +3409,7 @@ window.application = new Application();
 		<ellipse onclick="application.goToTargetView(event)" id="Ellipse_6_c" rx="21.5" ry="22" cx="21.5" cy="22">
 		</ellipse>
 	</svg>
+	</form>
 </div>
 </body>
 </html>

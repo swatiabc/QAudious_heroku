@@ -18,9 +18,12 @@ from django.urls import path,include
 from transcribe_audio.views import( upload_page, local_page, drive_page,home_view,)
 from question_answer.views import(question_page,qa_display_page,qa_saved_page,post_question,
             qa_delete_confirm_page, qa_deleted_page,use_ajax_for_session, )
-
+from register.views import(signin_form_page,signin_home_page,register_form_page,
+            dashboard_page,register_home_page,)
 
 urlpatterns = [
+    path('register_form.html',register_form_page),
+    path('dashboard.html',dashboard_page),
     path('upload.html', upload_page),
     path('local.html', local_page),
     path('', home_view),
@@ -32,6 +35,9 @@ urlpatterns = [
     path('qa_deleted.html',qa_deleted_page),
     path('qa_delete_confirm.html',qa_delete_confirm_page),
     path('qa_data', use_ajax_for_session ),
+    path('signin_form.html',signin_form_page),
+    path('signin_home.html',signin_home_page),
+    path('register_home.html',register_home_page),
     path('admin/', admin.site.urls),
 ]
 

@@ -1,4 +1,8 @@
+{% extends "index.html" %}
+{% load crispy_forms_tags %}
 {%load static%}
+{% block start %}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -82,8 +86,8 @@
 		overflow: visible;
 		width: 694px;
 		height: 523px;
-		left: 202px;
-		top: 274px;
+		left: 800px;
+		top: 100px;
 	}
 	#Rectangle_8 {
 		fill: rgba(255,255,255,1);
@@ -120,7 +124,7 @@
 		position: absolute;
 		width: 86px;
 		height: 86px;
-		left: 918px;
+		left: 1801px;
 		top: 46px;
 		overflow: visible;
 		--web-animation: fadein 0.3s ease-out;
@@ -3283,80 +3287,30 @@ window.application = new Application();
 </head>
 <body>
 <div id="signin_form">
-	<form method="post" enctype="multipart/form-data" >
-		{% csrf_token %}
-	<svg class="Rectangle_6">
-		<rect id="Rectangle_6" rx="0" ry="0" x="0" y="0" width="830" height="1080">
-		</rect>
-	</svg>
-	<svg class="Rectangle_7">
-		<rect id="Rectangle_7" rx="80" ry="80" x="0" y="0" width="694" height="523">
-		</rect>
-	</svg>
-	<svg class="Rectangle_8">
-		<rect id="Rectangle_8" rx="80" ry="80" x="0" y="0" width="694" height="102">
-		</rect>
-	</svg>
-	<div id="Sign_In_bp">
-		<span>Sign In</span>
-	</div>
 	<img onclick="application.goToTargetView(event)" id="navbar_bq" src="{% static 'navbar_bq.png' %}" >
 		
 	<img id="ql_br" src="{% static 'ql_br.png' %}" >
 		
-	<!-- <div id="Email_">
-		<span>Email:</span><br>
-	</div> -->
-
-	<input name="email_lg" type="text" id="Email_" placeholder="Email"><br>
-
-	<!-- <div id="Password_">
-		<span>Password:</span><br>
-	</div> -->
-	<input name="password" type="password" id="Password__cq" placeholder="Pasword"><br>
-
-	<!-- <div onclick="application.goToTargetView(event)" id="Group_36"> -->
-	<div id="Group_36">
-		<div id="Login_bv">
-			<span>Login</span>
-			<input type="submit" class="file_upload" >
-		</div>
-		<svg class="Rectangle_29">
-			<rect id="Rectangle_29" rx="15" ry="15" x="0" y="0" width="94" height="38">
-			</rect>
-		</svg>
-	</div>
-	<div id="or_">
-		<span>or</span><br>
-	</div>
-	<div onclick="application.goToTargetView(event)" id="Create_an_account">
-		<span>Create an account</span>
-	</div>
-	<svg class="Line_28" viewBox="0 0 307 1">
-		<path id="Line_28" d="M 307 1 L 0 0">
-		</path>
-	</svg>
-	<svg class="Line_29" viewBox="0 0 584 1">
-		<path id="Line_29" d="M 0 0 L 584 0">
-		</path>
-	</svg>
-	<svg class="Line_30" viewBox="0 0 584 1">
-		<path id="Line_30" d="M 0 0 L 584 0">
-		</path>
-	</svg>
-	<div id="Repeat_Grid_4">
-		<div id="Repeat_Grid_4_0" class="">
-			<img id="Image_2" src="{% static 'Image_2.png' %}" >
-				
-		</div>
-	</div>
-	<img id="Image_3" src="{% static 'Image_3.png' %}" >
-		
-	<div id="New_User">
-		<span>New User?</span>
-	</div>
 	<img onclick="application.goToTargetView(event)" id="back" src="{% static 'back.png' %}" >
 		
+
+	
+	<div class="Rectangle_7">
+		<center>
+		<form method="POST">
+		  {% csrf_token %}
+		  <fieldset class="form-group">
+			{{ form|crispy}}
+		  </fieldset>
+		 <center>
+		  <button style="background: black; font-size: 2rem; padding:1%;" class="btn btn-outline-info" type="submit"><span class="glyphicon glyphicon-log-in"></span> &nbsp; login</button>
+		</center>
+		<br/>
+		<sub style="text-align: left;"><a href="dashboard.html" style="text-decoration: none; color: blue; padding:2%; cursor:pointer; margin-right:2%;">don't have account,sign up</a></sub>
+		</form>
+	  </center>
+	   </div>
+
 	<svg class="Ellipse_4_b">
 		<ellipse onclick="application.goToTargetView(event)" id="Ellipse_4_b" rx="21.5" ry="22" cx="21.5" cy="22">
 		</ellipse>
@@ -3369,7 +3323,7 @@ window.application = new Application();
 		<ellipse onclick="application.goToTargetView(event)" id="Ellipse_6_ca" rx="21.5" ry="22" cx="21.5" cy="22">
 		</ellipse>
 	</svg>
-	</form>
 </div>
 </body>
 </html>
+{% endblock start %}

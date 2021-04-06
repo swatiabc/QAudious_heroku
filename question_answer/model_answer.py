@@ -2,7 +2,7 @@ import torch
 from transformers import BertForQuestionAnswering
 from transformers import BertTokenizer
 import textwrap
-
+import re
 
 tokenizer = BertTokenizer.from_pretrained('bert-large-uncased-whole-word-masking-finetuned-squad')
 model = BertForQuestionAnswering.from_pretrained('bert-large-uncased-whole-word-masking-finetuned-squad')
@@ -14,6 +14,7 @@ def answer_question(question, answer_text):
     answer), and identifies the words within the `answer_text` that are the
     answer. Prints them out.
     '''
+    question = re.sub(r'[^\w\s]', '', question)
     wrapper = textwrap.TextWrapper(width=80) 
     print(wrapper.fill(answer_text))
     # ======== Tokenize ========
@@ -70,7 +71,19 @@ def answer_question(question, answer_text):
         else:
             answer += ' ' + tokens[i]
     print('Answer: "' + answer + '"')
-    return answer
+    
+    stopwords = ['[CLS]','[SEP]']
+    querywords = answer.split()
+
+    resultwords  = [word for word in querywords if word not in stopwords]
+    result = ' '.join(resultwords)
+    print("---------------result",result,"------------------")
+    print(result)
+    print(question)
+    if result.replace(" ","")==question.replace(" ",""):
+        result = "Answer not present in the provided context!!!"
+
+    return result
 
 
 

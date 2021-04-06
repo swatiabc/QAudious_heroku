@@ -1,11 +1,17 @@
+
 {%load static%}
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{% block head %}
 <title>profile</title>
+{% endblock %}
+
 <style id="applicationStylesheet" type="text/css">
 	.mediaViewInfo {
 		--web-view-name: profile;
@@ -285,6 +291,23 @@
 		font-weight: bold;
 		font-size: 28px;
 		color: rgba(0,0,0,1);
+	}
+	#Rectangle_7 {
+		fill: rgba(255,255,255,1);
+		stroke: rgba(112,112,112,1);
+		stroke-width: 1px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Rectangle_7 {
+		position: absolute;
+		overflow: visible;
+		width: 694px;
+		height: 523px;
+		left: 800px;
+		top: 100px;
 	}
 	#ic_person_24px_lg {
 		fill: rgba(0,0,0,1);
@@ -3367,54 +3390,19 @@ window.application = new Application();
 		<ellipse id="Ellipse_17" rx="155.5" ry="142.5" cx="155.5" cy="142.5">
 		</ellipse>
 	</svg>
-	<svg class="Line_42" viewBox="0 0 257 1">
-		<path id="Line_42" d="M 0 0 L 257 0">
-		</path>
-	</svg>
-	<svg class="Line_44" viewBox="0 0 484 1">
-		<path id="Line_44" d="M 0 0 L 484 0">
-		</path>
-	</svg>
-	<svg class="Line_45" viewBox="0 0 484 1">
-		<path id="Line_45" d="M 0 0 L 484 0">
-		</path>
-	</svg>
-	<svg class="Line_46" viewBox="0 0 484 1">
-		<path id="Line_46" d="M 0 0 L 484 0">
-		</path>
-	</svg>
-	<svg class="Line_47" viewBox="0 0 484 1">
-		<path id="Line_47" d="M 0 0 L 484 0">
-		</path>
-	</svg>
+
 	<div id="Personal_Details">
-		<span>Personal Details</span>
+		<h1>Personal Details</h1>
+		<br><br>
+		<p>Username: {{ user }}</p>
+		<p>First name: {{ user.first_name }}</p>
+		<p>Last name: {{ user.last_name }}</p>
+		<p>Email: {{ user.email }}</p>
 	</div>
 	<svg class="ic_person_24px_lg" viewBox="4 4 82.601 82.601">
 		<path id="ic_person_24px_lg" d="M 45.30028915405273 45.30028915405273 C 56.70949554443359 45.30028915405273 65.950439453125 36.05934906005859 65.950439453125 24.650146484375 C 65.950439453125 13.24094104766846 56.70949554443359 4 45.30028915405273 4 C 33.89108657836914 4 24.650146484375 13.24094104766846 24.650146484375 24.650146484375 C 24.650146484375 36.05934906005859 33.89108657836914 45.30028915405273 45.30028915405273 45.30028915405273 Z M 45.30028915405273 55.62536239624023 C 31.51632118225098 55.62536239624023 4 62.54316329956055 4 76.2755126953125 L 4 86.6005859375 L 86.6005859375 86.6005859375 L 86.6005859375 76.2755126953125 C 86.6005859375 62.54316329956055 59.08426284790039 55.62536239624023 45.30028915405273 55.62536239624023 Z">
 		</path>
 	</svg>
-	<div onclick="application.goToTargetView(event)" id="Group_24">
-		<svg class="Rectangle_36">
-			<rect id="Rectangle_36" rx="22" ry="22" x="0" y="0" width="133" height="44">
-			</rect>
-		</svg>
-		<div id="Update">
-			<span>Update</span>
-		</div>
-	</div>
-	<div onclick="application.goToTargetView(event)" id="Group_25">
-		<svg class="Rectangle_36_ll">
-			<rect id="Rectangle_36_ll" rx="22" ry="22" x="0" y="0" width="217" height="44">
-			</rect>
-		</svg>
-		<div id="Delete_Account">
-			<span>Delete Account</span>
-		</div>
-	</div>
-	<div id="or__ln">
-		<span>or</span><br>
-	</div>
 	<svg class="Line_48" viewBox="0 0 0.5 449">
 		<path id="Line_48" d="M 0.5 0 L 0 449">
 		</path>
@@ -3433,6 +3421,7 @@ window.application = new Application();
 		<ellipse onclick="application.goToTargetView(event)" id="Ellipse_6_ls" rx="21.5" ry="22" cx="21.5" cy="22">
 		</ellipse>
 	</svg>
+
 </div>
 </body>
 </html>

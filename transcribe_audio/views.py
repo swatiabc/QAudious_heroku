@@ -29,6 +29,8 @@ def local_page(request):
         uploaded_file = request.FILES['uploaded_file']
         print("22222222222222222222222222")
         audio_data = models.AudioDataModel()
+        audio_data.user = request.user or None
+        print("usersssssssssssssss-------",audio_data.user,"-----------------------userssssssssssss")
         print("3333333333333333333333")
         audio_data.uploaded_file=uploaded_file
         audio_data.save()

@@ -91,7 +91,7 @@ DATABASES = {
 DATABASES = {
    'default' : {
       'ENGINE' : 'djongo',
-      'NAME' : 'quadious',
+      'NAME' : 'qaudious',
       'USER': 'admin',
       'PASSWORD': 'admin',
    }

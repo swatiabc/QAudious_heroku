@@ -1,7 +1,11 @@
 from django.db import models
+from django.conf import settings
+from django.contrib.auth.models import User
 
 # Create your models here.
 class AudioDataModel(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
     uploaded_file = models.FileField(null=False, blank=False)
     exported_file_name = models.TextField(null=True, blank=True)
 

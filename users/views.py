@@ -66,7 +66,10 @@ def register_home_page(request):
     return render(request,"register_home.html")
 
 def dashboard_page(request):
-    return render(request,"dashboard.html")
+    if request.user.is_authenticated:
+        return render(request,"dashboard.html")
+    else:
+        return render(request,"signin_form.html")
 
 def index(request):
     return render(request,"index.html")

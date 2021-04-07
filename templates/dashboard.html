@@ -104,6 +104,30 @@
 		top: -25px;
 		overflow: visible;
 	}
+	
+	.scrollabletextbox {
+    height:100px;
+    width:200px;
+    font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 82%;
+    overflow:scroll;
+}
+
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+
+.tab4 {
+            tab-size: 8;
+        }
+
 	#Rectangle_12_h {
 		fill: rgba(255,255,255,1);
 	}
@@ -282,16 +306,28 @@
 		stroke-linecap: butt;
 		stroke-miterlimit: 4;
 		shape-rendering: auto;
+		
 	}
 	.Rectangle_32 {
 		filter: drop-shadow(5px 5px 5px rgba(0, 170, 255, 0.161));
 		position: absolute;
 		overflow: visible;
-		width: 1824px;
-		height: 223px;
-		left: 57px;
-		top: 464.092px;
+		text-align: left;
+		font-family: Corbel;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 20px;
+		color: rgba(0,0,0,1);
+		padding: 70px;
+  		border: 1px solid #4CAF50;
+		width: 1750px;
+		height: 400px;
+		left: 100px;
+		top: 350px;
+		overflow-y: auto;
+		overflow-x: auto;
 	}
+
 	#Run_Length_Encoding_is_a_lossl {
 		left: 70px;
 		top: 364.059px;
@@ -571,11 +607,11 @@
 		color: rgba(0,0,0,1);
 	}
 	#-_Upload_a_new_media {
-		left: 878px;
-		top: 785.059px;
+		left: 1600px;
+		top: 273.059px;
 		position: absolute;
 		overflow: visible;
-		width: 218px;
+		width: 211px;
 		height: 31px;
 		text-align: left;
 		font-family: Corbel;
@@ -588,8 +624,8 @@
 		position: absolute;
 		width: 46px;
 		height: 45px;
-		left: 825px;
-		top: 780px;
+		left: 1500px;
+		top: 266px;
 		overflow: visible;
 		--web-animation: fadein 0.3s ease-out;
 		--web-action-type: page;
@@ -3468,6 +3504,7 @@ window.application = new Application();
 </head>
 <body>
 <div id="dashboard">
+	
 	<img id="qaudious_logo_h" src="{% static 'qaudious_logo_h.png' %}" >
 		
 	<div id="-_An_NLP_Based_Question_Answer_h">
@@ -3477,18 +3514,14 @@ window.application = new Application();
 		<path id="Line_18_h" d="M 445 3 L 0 0">
 		</path>
 	</svg>
-	<img id="ql_h" src="{% static 'ql_h.png' %}" >
-		
+	<img id="ql_h" src="{% static 'ql_h.png'  %}">
+
 	<svg class="Rectangle_12_h">
 		<rect id="Rectangle_12_h" rx="0" ry="0" x="0" y="0" width="5" height="9">
 		</rect>
 	</svg>
 	<img id="waveform_h" src="{% static 'waveform_h.png' %}" >
 		
-	<svg class="Rectangle_27">
-		<rect id="Rectangle_27" rx="49" ry="49" x="0" y="0" width="1809" height="98">
-		</rect>
-	</svg>
 	<div id="_DASHBOARD">
 		<span> DASHBOARD</span>
 	</div>
@@ -3503,59 +3536,26 @@ window.application = new Application();
 			</svg>
 		</div>
 	</div>
-	<svg class="Rectangle_31">
-		<rect id="Rectangle_31" rx="25.5" ry="25.5" x="0" y="0" width="185" height="51">
-		</rect>
-	</svg>
-	<div id="Previous">
-		<span>Previous</span>
+	
+	<div class="Rectangle_32">
+		{% for t_d in trans_data %}
+			{{t_d.transcript}} <br><br>
+			<hr/>
+			{% for u_d in user_data %}
+				{% if t_d.id == u_d.transcript_id %}
+				<pre class="tab4">Question: {{u_d.question}}  </pre>
+				<pre class="tab4">Answer: {{u_d.answer}} <br><br></pre>
+				{% endif %} 
+			{% endfor %}
+			<hr/>
+		{% endfor %}
 	</div>
-	<div id="Next_if">
-		<span>Next</span>
-	</div>
-	<svg class="Line_36" viewBox="0 0 1 51">
-		<path id="Line_36" d="M 0 0 L 0 51">
-		</path>
-	</svg>
-	<svg class="Rectangle_32">
-		<rect id="Rectangle_32" rx="0" ry="0" x="0" y="0" width="1809" height="208">
-		</rect>
-	</svg>
-	<div id="Run_Length_Encoding_is_a_lossl">
-		<span>Run Length Encoding is a lossless compression technique where the intensity value of a pixel is followed by...</span>
-	</div>
-	<svg class="Line_37" viewBox="0 0 1809 1">
-		<path id="Line_37" d="M 1809 0 L 0 0">
-		</path>
-	</svg>
-	<div id="Q1__Intensity_value_of_a_pixel">
-		<span>Q1.  Intensity value of a pixel is followed by what ?</span>
-	</div>
-	<div id="Transcript_">
-		<span>Transcript: </span>
-	</div>
-	<div id="Q2__What_is_sign_change_value_">
-		<span>Q2.  What is sign change value RLE?</span>
-	</div>
-	<svg class="Line_38" viewBox="0 0 1809 1">
-		<path id="Line_38" d="M 1809 0 L 0 0">
-		</path>
-	</svg>
-	<svg class="Rectangle_33">
-		<rect id="Rectangle_33" rx="0" ry="0" x="0" y="0" width="45" height="209">
-		</rect>
-	</svg>
+	
 	<svg class="ic_person_24px" viewBox="4 4 82.601 82.601">
 		<path onclick="application.goToTargetView(event)" id="ic_person_24px" d="M 45.30028915405273 45.30028915405273 C 56.70949554443359 45.30028915405273 65.950439453125 36.05934906005859 65.950439453125 24.650146484375 C 65.950439453125 13.24094104766846 56.70949554443359 4 45.30028915405273 4 C 33.89108657836914 4 24.650146484375 13.24094104766846 24.650146484375 24.650146484375 C 24.650146484375 36.05934906005859 33.89108657836914 45.30028915405273 45.30028915405273 45.30028915405273 Z M 45.30028915405273 55.62536239624023 C 31.51632118225098 55.62536239624023 4 62.54316329956055 4 76.2755126953125 L 4 86.6005859375 L 86.6005859375 86.6005859375 L 86.6005859375 76.2755126953125 C 86.6005859375 62.54316329956055 59.08426284790039 55.62536239624023 45.30028915405273 55.62536239624023 Z">
 		</path>
 	</svg>
-	<svg class="Rectangle_38">
-		<rect id="Rectangle_38" rx="0" ry="0" x="0" y="0" width="45" height="111">
-		</rect>
-	</svg>
-	<div id="A1_The_intensity_value_of_a_pi">
-		<span>A1. The intensity value of a pixel is followed by …….</span>
-	</div>
+	
 	<div onclick="application.goToTargetView(event)" id="Group_38">
 		<svg class="Ellipse_24">
 			<ellipse id="Ellipse_24" rx="23" ry="22.5" cx="23" cy="22.5">
@@ -3594,6 +3594,7 @@ window.application = new Application();
 			</path>
 		</svg>
 	</div>
+
 </div>
 </body>
 </html>

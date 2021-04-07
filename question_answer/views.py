@@ -21,6 +21,7 @@ def qa_display_page(request):
         return render(request,"qa_display.html")
     
     qa_data = models.QADataModel()
+    qa_data.user = request.user or None
     qa_data.question = request.session["question"]
     try:
         qa_data.transcript = AudioDataModel.objects.get(id=request.session['transcript'])
@@ -73,6 +74,19 @@ def post_question(request):
     request.session["answer"] = model_answer.answer_question(uploaded_question,abstract.transcript)
 
     return HttpResponseRedirect("qa_display.html")
+
+
+def dashboard_page(request):
+    if request.user.is_authenticated:
+        data_qa = models.QADataModel.objects.filter(user=request.user )
+        data_tran = models.AudioDataModel.objects.filter(user=request.user)
+        user_data = {
+            "user_data":data_qa,
+            "trans_data":data_tran
+        }
+        return render(request,"dashboard.html",user_data)
+    else:
+        return render(request,"signin_home.html")
 
 
 def use_ajax_for_session(request):

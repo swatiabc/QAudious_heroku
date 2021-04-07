@@ -9,6 +9,7 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import get_template
 from django.template import Context
 
+
 # Create your views here.
 # def signin_form_page(request):
 #     return render(request,"signin_form.html")
@@ -65,11 +66,6 @@ def register_form_page(request):
 def register_home_page(request):
     return render(request,"register_home.html")
 
-def dashboard_page(request):
-    if request.user.is_authenticated:
-        return render(request,"dashboard.html")
-    else:
-        return render(request,"signin_form.html")
 
 def index(request):
     return render(request,"index.html")

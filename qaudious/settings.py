@@ -25,7 +25,7 @@ SECRET_KEY = ')7xoc3u^pjp^mg(j2bl!w-o7@j0o009^s8)0c3sd8x$c8(&3a_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True # edited
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [".localhost", ".herokuapp.com"]
 
 
 # Application definition
@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -140,6 +141,8 @@ STATIC_URL = '/templates/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,"templates"),
 ]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST="smtp.gmail.com"
